@@ -27,4 +27,19 @@ plt.plot(x0, y0)
 plt.axis([140, 190, 45, 75])
 plt.xlabel('Height (cm)')
 plt.ylabel('Weight (kg)')
-plt.show()
+#plt.show()
+y1 = w[1][0]*155 + w[0][0]
+y2 = w[1][0]*160 + w[0][0]
+
+print('Predict weight of person with height 155 cm: %.2f(kg), real number: 52 (kg)'%(y1))
+print('Predict weight of person with height 160 cm: %.2f(kg), real number: 56 (kg)'%(y2))
+
+#using scikit-learn
+
+from sklearn import datasets, linear_model
+
+regr = linear_model.LinearRegression(fit_intercept=False)
+regr.fit(Xbar, y)
+
+print('Solution found by scikit-learn: ', regr.coef_)
+print('Solution found by (5)', w.T)
